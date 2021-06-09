@@ -503,6 +503,8 @@ background:#fff;
   <span id="selectall" ser="0">全選</span>
 </div>
 <div class="ladbar"></div>
+ <script src="https://erichsia7.github.io/prompt.js/prompt.min.js"></script>
+
 <script>
 lade = 0 ;
 function ladbaradd() {
@@ -716,6 +718,8 @@ var favcolorss = getCookie('clipboard_app').substring(1,getCookie('clipboard_app
     document.getElementById(cwoid).select();
     document.execCommand("Copy");
     document.getElementById(cwoid).remove();
+  $('body').prompt({'message':'已複製','time':1200,'animate':'slide'});
+
  });
  $('.coloropenbtnj').click(function() {
   if(cardselect === "0") {
