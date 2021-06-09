@@ -173,6 +173,7 @@ padding-bottom:100px;
   justify-content: center;
   align-items: center;
   color:#333;
+  float:right;
 }
    .btn {
   background-size:25px;
@@ -692,7 +693,7 @@ var favcolorss = getCookie('clipboard_app').substring(1,getCookie('clipboard_app
    var ccpptext = decs(ccppll[1]) ;
    var ccppid = decs(ccppll[1]) ;
 
-    $('#cardbox').prepend('<div class="card" style="background:' + '#fff' + ';color:' + '#000' + ';--seico-color:' + '0' + '" type="clipboard" coki="' + favcolorss[ffpp] + '" id="' + ccppid + '"><div class="content"><h4>' + ccpptim + '<div class="cop lle"></div></h4><div class="description"><span>' + ccpptext + '</span></div> </div></div>');
+    $('#cardbox').prepend('<div class="card" style="background:' + '#fff' + ';color:' + '#000' + ';--seico-color:' + '0' + '" type="clipboard" coki="' + favcolorss[ffpp] + '" id="' + ccppid + '"><div class="content"><h4>' + ccpptim + '<div class="cop"></div></h4><div class="description"><span>' + ccpptext + '</span></div> </div></div>');
 
   }
  $('#cctitle').html('<center><h1>剪貼板</h1></center>');
