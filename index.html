@@ -702,13 +702,20 @@ var favcolorss = getCookie('clipboard_app').substring(1,getCookie('clipboard_app
    var ccpptext = decs(ccppll[1]) ;
    var ccppid = decs(ccppll[1]) ;
 
-    $('#cardbox').prepend('<div class="card" style="--seico-color:' + '0' + '" type="clipboard" coki="' + favcolorss[ffpp] + '" id="' + ccppid + '"><div class="content"><h4>' + ccpptim + '<div class="cop"></div></h4><div class="description"><span>' + ccpptext + '</span></div> </div></div>');
+    $('#cardbox').prepend('<div class="card" style="--seico-color:' + '0' + '" type="clipboard" coki="' + favcolorss[ffpp] + '" id="' + ccppid + '"><div class="content"><h4>' + ccpptim + '<div class="cop" vg="' + ccpptext + '"></div></h4><div class="description"><span>' + ccpptext + '</span></div> </div></div>');
 
   }
  $('#cctitle').html('<center><h1>剪貼板</h1></center>');
  resize();
  $( window ).resize(function() {
   resize();
+ });
+ $('.cop').click(function() {
+  var cwoid = genid('random') ;
+  $('body').append('<textarea id="' + cwoid + '">' + $(this).attr('vg') + '</textarea>');
+    document.getElementById(cwoid).select();
+    document.execCommand("Copy");
+    document.getElementById(cwoid).remove();
  });
  $('.coloropenbtnj').click(function() {
   if(cardselect === "0") {
