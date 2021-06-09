@@ -435,6 +435,7 @@ background:#fff;
  }
 </style>
 <body>
+ <div id="cctitle"></div>
 <div id="cardboxlo" ></div>
 
 <div id="eelo" style="position:fixed;top:0px;left:0px;width:100%;height:100%;display:none;">
@@ -675,8 +676,9 @@ var favcolorss = getCookie('clipboard_app').substring(1,getCookie('clipboard_app
 
     $('#cardbox').prepend('<div class="card" style="background:' + '#fff' + ';color:' + '#000' + ';--seico-color:' + '0' + '" type="clipboard" coki="' + favcolorss[ffpp] + '" id="' + ccppid + '"><div class="content"><h4>' + ccpptim + '</h4><div class="description">' + ccpptext + '</div></div></div>');
 
-   $('#cardbox').prepend('<center><h1>剪貼板</h1></center>');
+   
   }
+ $('#cctitle').html('<center><h1>剪貼板</h1></center>');
  resize();
  $( window ).resize(function() {
   resize();
