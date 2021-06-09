@@ -607,8 +607,8 @@ if (i<10)
 }
 function getTime() {
   var today = new Date();
-  var mm = checkTime(today.getMonth()+1) ;
-  var dd = checkTime(today.getDate()) ;
+  var mm = (today.getMonth()+1) ;
+  var dd = today.getDate() ;
   var hh = checkTime(today.getHours()) ;
   var mms = checkTime(today.getMinutes()) ;
   return mm + '/' + dd + ' ' + hh + ':' + mms ;
