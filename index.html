@@ -712,7 +712,7 @@ var favcolorss = getCookie('clipboard_app').substring(1,getCookie('clipboard_app
  });
  $('.cop').click(function() {
   var cwoid = genid('random') ;
-  $('body').append('<textarea id="' + cwoid + '">' + $(this).attr('vg') + '</textarea>');
+  $('body').append('<textarea id="' + cwoid + '" readonly="readonly">' + $(this).attr('vg') + '</textarea>');
     document.getElementById(cwoid).select();
     document.execCommand("Copy");
     document.getElementById(cwoid).remove();
