@@ -516,7 +516,7 @@ function genid(mode) {
 if(mode === "random"){
 var genidchars = "0123456789abcdefghijklmnopqrstuvwxyz";
             var genid = "";
-            for (var i = 0; i < 16; i++) {
+            for (var i = 0; i < 8; i++) {
                 var genrandomNumber = Math.floor(Math.random() * genidchars.length);
                 genid += genidchars.substring(genrandomNumber, genrandomNumber + 1);
             }
@@ -556,23 +556,6 @@ genid5 += '-' + genid4 ;
   }
 
 }
-function componentToHex(c) {
-  var hex = c.toString(16);
-  return hex.length == 1 ? "0" + hex : hex;
-}
-
-function rgbToHex(r, g, b) {
-  return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
-}
-function hexToRgb(hex) {
-  var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-  return result ? {
-    r: parseInt(result[1], 16),
-    g: parseInt(result[2], 16),
-    b: parseInt(result[3], 16)
-  } : null;
-}
-
 
 function getCookie(cname)
 {
@@ -586,8 +569,38 @@ function getCookie(cname)
   return "";
 }
 function setcookie(cookiename,cookievalue) {
-document.cookie = cookiename + '=' + cookievalue + '; max-age='+60*60*24*7 + '; domain=erichsia7.github.io';
+document.cookie = cookiename + '=' + cookievalue + '; max-age='+60*60*24*30 + '; path=/';
 }
+    
+
+function encs(enc) {
+  return btoa(encodeURIComponent(enc))
+}
+function decs(dec) {
+  return decodeURIComponent(atob(dec));
+}
+function checkTime(i)
+{
+if (i<10) 
+  {i="0" + i}
+  return i
+}
+function getTime() {
+  var today = new Date();
+  var mm = checkTime(today.getMonth()+1) ;
+  var dd = checkTime(today.getDate()) ;
+  var hh = checkTime(today.getHours()) ;
+  var mms = checkTime(today.getMinutes()) ;
+  return mm + '/' + dd + ' ' + hh + ':' + mms ;
+}
+function addclipboard(text) {
+ setcookie('clipboard_app',getCookie('clipboard_app') + '&' + getTime() + '@' + encs(text) + '@' + genid('random')); 
+}
+//console.log(getCookie('clipboard_app').substring(1,getCookie('clipboard_app').length).split("&"))
+
+
+
+
        
 function resize() {
   if($(window).width() > 400 && $(window).width() <= 750) {
@@ -652,38 +665,20 @@ function start() {
  if(getCookie('colorfav2') === "") {
   $('#eelo').css({'display':'block'});
  }
-var favcolorss = getCookie('colorfav2').substring(1,getCookie('colorfav2').length).split('&') ;
+var favcolorss = getCookie('clipboard_app').substring(1,getCookie('clipboard_app').length).split('&') ;
   for (var ffpp = 0; ffpp < favcolorss.length; ffpp++) {
-   if(favcolorss[ffpp].indexOf('li') != -1) {
-    
-    var grdddli = favcolorss[ffpp].split(']') ;
-    var gdege = grdddli[1] ;
-    var gacce = grdddli[2] ;
-    var gbcce = grdddli[3] ;
-    var bgree = 'linear-gradient(' + gdege + 'deg ,' +  gacce + ' 0%,' +  gbcce + ' 100%)' ;
-    if((hexToRgb(gacce).r+hexToRgb(gacce).g+hexToRgb(gacce).b+hexToRgb(gbcce).r+hexToRgb(gbcce).g+hexToRgb(gbcce).b)/6 > 128) {
-      var gdzcolor = '#000' ;
-      var seicocor = '0' ;
-    }
-    else {
-      var gdzcolor = '#fff' ;
-      var seicocor = '255' ;
-    }
-    $('#cardbox').prepend('<div class="card" style="background:' + bgree + ';color:' + gdzcolor + ';--seico-color:' + seicocor + '" type="grd" coki="' + favcolorss[ffpp] + '"><div class="content"><h4>' + gdege + ',' +  gacce + ',' +  gbcce + '</h4><div class="description"><a link="' + 'https://erichsia7.github.io/colors/?s=2&ga=' + btoa(gacce) + '&gb=' + btoa(gbcce) + '&gdeg=' + gdege + '&open=fav" class="coloropenbtnj">查看漸層</a></div></div></div>');
-   }
-   else {
-    
- if((hexToRgb(favcolorss[ffpp]).r+hexToRgb(favcolorss[ffpp]).g+hexToRgb(favcolorss[ffpp]).b)/3 > 128) {
-var tgzcolor = '#000' ;
-var seicocor = '0' ;
-}
-    else {
-      var tgzcolor = '#fff' ;
-var seicocor = '255' ;
-    }
-    $('#cardbox').prepend('<div class="card" style="background:' + favcolorss[ffpp] + ';color:' + tgzcolor + ';--seico-color:' + seicocor + '" type="col"><div class="content"><h4>' + favcolorss[ffpp] + '</h4><div class="description"><a link="' + 'https://erichsia7.github.io/colors/?s=1&c=' + btoa(favcolorss[ffpp]) + '&open=fav" class="coloropenbtnj">查看顏色</a></div></div></div>');
-
-   }
+   
+    var ccppll = favcolorss[ffpp].split("@") ;
+   var ccpptim = ccppll[0] ;
+   var ccpptext = decs(ccppll[1]) ;
+   var ccppid = decs(ccppll[1]) ;
+   
+   
+    $('#cardbox').prepend('<div class="card" style="background:' + '#fff' + ';color:' + '#000' + ';--seico-color:' + '0' + '" type="clipboard" coki="' + favcolorss[ffpp] + '" id="' + ccppid + '"><div class="content"><h4>' + ccpptim + '</h4><div class="description">' + ccpptext + '</div></div></div>');
+   
+   
+   
+   
   }
  resize();
  $( window ).resize(function() {
