@@ -1045,7 +1045,8 @@ document.addEventListener("paste", function (e){
         if (item.kind === "string") {
             item.getAsString(function (str) {
                 $('.inp textarea').val(str);
-                $('.inp').attr('f','1')
+                $('.inp').attr('f','1');
+                $('.add').click();
             })
         } else if (item.kind === "file") {
             var pasteFile = item.getAsFile();
