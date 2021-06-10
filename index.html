@@ -1001,10 +1001,12 @@ $('.card[selectedy="1"]').click();
   document.execCommand('paste')
 });
        $('.add').click(function() {
+        if($('.inp textarea').val() != '') {
 addclipboard($('.inp textarea').val());
         setTimeout(function(){ 
     window.location.reload();
     }, 100);
+        }
        });
 $('.inp textarea').focus(function() {
 $('.inp').attr('f','1')
