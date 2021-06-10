@@ -1000,6 +1000,12 @@ $('.card[selectedy="1"]').click();
        $('.paste').click(function() {
   document.execCommand('paste')
 });
+       $('.add').click(function() {
+addclipboard($('.inp textarea').val());
+        setTimeout(function(){ 
+    window.location.reload();
+    }, 100);
+       });
 $('.inp textarea').focus(function() {
 $('.inp').attr('f','1')
 });
