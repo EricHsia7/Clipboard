@@ -850,7 +850,7 @@ var favcolorss = getCookie('clipboard_app').substring(1,getCookie('clipboard_app
    var ccpptext = decs(ccppll[1]) ;
    var ccppid = ccppll[2] ;
 
-    $('#cardbox').prepend('<div class="card" style="--seico-color:' + '0' + '" type="clipboard" coki="' + favcolorss[ffpp] + '" id="' + ccppid + '"><div class="content"><h4>' + ccpptim + '<div class="cop" vg="' + ccpptext + '"></div></h4><div class="description"><span>' + ccpptext + '</span></div> </div></div>');
+    $('#cardbox').prepend('<div class="card" style="--seico-color:' + '0' + '" type="clipboard" coki="' + favcolorss[ffpp] + '" id="' + ccppid + '"><div class="content"><h4>' + ccpptim + '<div class="cop" vg="' + ccpptext + '"></div></h4><div class="description"><span style="word-break: all;">' + ccpptext + '</span></div> </div></div>');
 
   }
  
