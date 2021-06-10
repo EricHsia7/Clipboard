@@ -1044,9 +1044,16 @@ document.addEventListener("paste", function (e){
 
         if (item.kind === "string") {
             item.getAsString(function (str) {
-                $('.inp textarea').val(str);
-                $('.inp').attr('f','1');
-                $('.add').click();
+                //$('.inp textarea').val(str);
+                //$('.inp').attr('f','1');
+             if(str != '') {
+addclipboard(str);
+        setTimeout(function(){ 
+    window.location.reload();
+    }, 10);
+        }
+             
+             
             })
         } else if (item.kind === "file") {
             var pasteFile = item.getAsFile();
