@@ -477,14 +477,10 @@ width: calc(100% - 30px);
 
 .inp[f="1"] {
 width: calc(100% - 30px);
-  background-color: #fff;
   border-radius: 15px;
   overflow: hidden;
   position:relative;
   min-width:180px;
- border:1px #e3e3e3 solid;
- transform:translateX(0px);
- color:#000;
   padding:0px;
   position:relative;
   left:50%;
@@ -528,6 +524,26 @@ transition:0.3s;
 }
  
   @media (prefers-color-scheme: dark) {
+   .inp {
+width: calc(100% - 30px);
+  background-color: #1a1a1a;
+  border-radius: 15px;
+  overflow: hidden;
+  position:relative;
+  min-width:180px;
+ border:1px #303030 solid;
+ color:#fff;
+  padding:0px;
+  position:relative;
+  left:50%;
+  transform:translateX(-50%);
+  height:45px;
+  max-width:400px;
+}
+   .inp textarea {
+color:#fff
+   }
+   .add,.cop {filter: invert(100%);}
    #cctitle {
   color:#fff;
  }
