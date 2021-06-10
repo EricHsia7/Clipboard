@@ -1019,7 +1019,7 @@ $('.card[selectedy="1"]').click();
 addclipboard($('.inp textarea').val());
         setTimeout(function(){ 
     window.location.reload();
-    }, 100);
+    }, 10);
         }
        });
 $('.inp textarea').focus(function() {
@@ -1044,16 +1044,8 @@ document.addEventListener("paste", function (e){
 
         if (item.kind === "string") {
             item.getAsString(function (str) {
-                //$('.inp textarea').val(str);
-                //$('.inp').attr('f','1');
-             if(str != '') {
-addclipboard(str);
-        setTimeout(function(){ 
-    window.location.reload();
-    }, 10);
-        }
-             
-             
+                $('.inp textarea').val(str);
+                $('.inp').attr('f','1');
             })
         } else if (item.kind === "file") {
             var pasteFile = item.getAsFile();
