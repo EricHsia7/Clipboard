@@ -1027,4 +1027,29 @@ function Drop(event){
     event.currentTarget.appendChild(document.getElementById(data));
 }     
     </script>
+ 
+ 
+ <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyD7zr4ifksGORYgAX_5agZvyBf-AEOx0HE",
+    authDomain: "clipboard-56c1e.firebaseapp.com",
+    projectId: "clipboard-56c1e",
+    storageBucket: "clipboard-56c1e.appspot.com",
+    messagingSenderId: "608755207188",
+    appId: "1:608755207188:web:e73bf6c129a2e1162d6b01",
+    measurementId: "G-1MLWMF0C1G"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
 </body>
